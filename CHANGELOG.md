@@ -1,3 +1,7 @@
+# 0.2.2
+
+- Added tests and coverage
+
 # 0.2.0
 
 - Added extension methods for Duration:
