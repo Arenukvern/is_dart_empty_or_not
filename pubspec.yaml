@@ -1,6 +1,6 @@
 name: is_dart_empty_or_not
 description: A Dart package that checks if a value is empty or not.
-version: 0.1.0
+version: 0.2.0
 homepage: https://github.com/arenukvern/dart_empty_or_not
 environment:
   sdk: ">=3.7.0 <4.0.0"
