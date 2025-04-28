@@ -1,10 +1,11 @@
 name: is_dart_empty_or_not
-description: A Dart package that checks if a value is empty or not.
-version: 0.2.0
+description: A Dart package that provides extensions for checking empty or zero values
+version: 0.2.1
 homepage: https://github.com/arenukvern/dart_empty_or_not
 environment:
   sdk: ">=3.7.0 <4.0.0"
 
 dev_dependencies:
   lints: ^5.1.1
-  xsoulspace_lints: ^0.0.14
+  test: ^1.25.15
+  xsoulspace_lints: ^0.0.15
