@@ -20,7 +20,7 @@ A minimal Dart package providing concise extension methods for handling empty an
 ```yaml
 # pubspec.yaml
 dependencies:
-  is_dart_empty_or_not: ^0.1.0
+  is_dart_empty_or_not: ^0.2.3
 ```
 
 ```dart
