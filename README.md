@@ -120,6 +120,19 @@ Duration(seconds: 2).isPositive; // true
 Duration(seconds: -1).isPositive; // false
 ```
 
+## Running the Example
+
+This package includes an example project in the `example` directory. To run the example:
+
+1. Navigate to the root directory of the package.
+2. Execute the following command:
+
+   ```sh
+   dart run example/main.dart
+   ```
+
+This will run the `main.dart` file located in the `example` directory and print the output of the various extension method demonstrations to the console. Refer to `example/README.md` for more details.
+
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md)
