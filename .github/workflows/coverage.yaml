@@ -56,7 +56,8 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        sdk: [3.7, stable]
+        # can be modified to be [3.10, stable]
+        sdk: [stable]
     steps:
       - uses: actions/checkout@v4
       - uses: dart-lang/setup-dart@v1
