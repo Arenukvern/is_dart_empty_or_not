@@ -1,3 +1,12 @@
+# 0.4.0
+
+- BREAKING: dependencies update:
+
+  ```yaml
+  environment:
+    sdk: ">=3.11.0 <4.0.0"
+  ```
+
 # 0.3.0
 
 - BREAKING: dependencies update:
