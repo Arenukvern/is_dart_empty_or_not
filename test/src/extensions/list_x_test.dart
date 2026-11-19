@@ -15,4 +15,25 @@ void main() {
       expect(list.whenEmptyUse(fallback), equals(fallback));
     });
   });
+
+  group('NullableEmptyOrNotListX', () {
+    test('isNullOrEmpty is true for null and empty lists', () {
+      const List<int>? nullList = null;
+      expect(nullList.isNullOrEmpty, isTrue);
+      expect(<int>[].isNullOrEmpty, isTrue);
+    });
+
+    test('isNotNullNorEmpty mirrors isNullOrEmpty', () {
+      const List<int>? nullList = null;
+      expect(nullList.isNotNullNorEmpty, isFalse);
+      expect(<int>[1].isNotNullNorEmpty, isTrue);
+    });
+
+    test('whenEmptyUse falls back for null and empty lists', () {
+      const List<int>? nullList = null;
+      expect(nullList.whenEmptyUse(<int>[7]), <int>[7]);
+      expect(<int>[].whenEmptyUse(<int>[7]), <int>[7]);
+      expect(<int>[1].whenEmptyUse(<int>[7]), <int>[1]);
+    });
+  });
 }

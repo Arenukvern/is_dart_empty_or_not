@@ -46,4 +46,31 @@ void main() {
       expect(called, isFalse);
     });
   });
+
+  group('NullableEmptyOrNotStringX', () {
+    test('isNullOrEmpty is true for null and empty', () {
+      const String? nullStr = null;
+      expect(nullStr.isNullOrEmpty, isTrue);
+      expect(''.isNullOrEmpty, isTrue);
+    });
+
+    test('isNullOrEmpty is false for non-empty strings', () {
+      expect('hello'.isNullOrEmpty, isFalse);
+      expect(' '.isNullOrEmpty, isFalse);
+    });
+
+    test('isNotNullNorEmpty mirrors isNullOrEmpty', () {
+      const String? nullStr = null;
+      expect(nullStr.isNotNullNorEmpty, isFalse);
+      expect(''.isNotNullNorEmpty, isFalse);
+      expect('hello'.isNotNullNorEmpty, isTrue);
+    });
+
+    test('whenEmptyUse falls back for null and empty', () {
+      const String? nullStr = null;
+      expect(nullStr.whenEmptyUse('anon'), 'anon');
+      expect(''.whenEmptyUse('anon'), 'anon');
+      expect('ada'.whenEmptyUse('anon'), 'ada');
+    });
+  });
 }

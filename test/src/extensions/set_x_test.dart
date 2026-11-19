@@ -15,4 +15,25 @@ void main() {
       expect(set.whenEmptyUse(fallback), equals(fallback));
     });
   });
+
+  group('NullableEmptyOrNotSetX', () {
+    test('isNullOrEmpty is true for null and empty sets', () {
+      const Set<int>? nullSet = null;
+      expect(nullSet.isNullOrEmpty, isTrue);
+      expect(<int>{}.isNullOrEmpty, isTrue);
+    });
+
+    test('isNotNullNorEmpty mirrors isNullOrEmpty', () {
+      const Set<int>? nullSet = null;
+      expect(nullSet.isNotNullNorEmpty, isFalse);
+      expect(<int>{1}.isNotNullNorEmpty, isTrue);
+    });
+
+    test('whenEmptyUse falls back for null and empty sets', () {
+      const Set<int>? nullSet = null;
+      expect(nullSet.whenEmptyUse(<int>{7}), <int>{7});
+      expect(<int>{}.whenEmptyUse(<int>{7}), <int>{7});
+      expect(<int>{1}.whenEmptyUse(<int>{7}), <int>{1});
+    });
+  });
 }

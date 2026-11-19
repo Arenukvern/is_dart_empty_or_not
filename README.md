@@ -43,6 +43,9 @@ final value = 0.whenZeroUse(42); // 42
 | List           | whenEmptyUse    | `List<T> whenEmptyUse(List<T> values)`<br>Returns the provided value if empty |
 | Set            | whenEmptyUse    | `Set<T> whenEmptyUse(Set<T> values)`<br>Returns the provided value if empty   |
 | Map            | whenEmptyUse    | `Map<K,V> whenEmptyUse(Map<K,V> map)`<br>Returns the provided value if empty  |
+| String?        | isNullOrEmpty   | `bool get isNullOrEmpty`<br>True when null or empty (String?, List?, Map?, Set?) |
+| String?        | isNotNullNorEmpty | `bool get isNotNullNorEmpty`<br>True when non-null and non-empty (String?, List?, Map?, Set?) |
+| String?        | whenEmptyUse    | `String whenEmptyUse(String value)`<br>Same shape as non-nullable, works on nullables (String?, List?, Map?, Set?) |
 | num/int/double | whenZeroUse     | `num whenZeroUse(num value)`<br>Returns fallback if zero                      |
 | num            | isZero          | `bool get isZero`<br>True if value is zero                                    |
 | num            | isPositive      | `bool get isPositive`<br>True if value is positive                            |

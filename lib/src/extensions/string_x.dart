@@ -25,3 +25,27 @@ extension EmptyOrNotStringX on String {
   /// @ai Use this method to provide fallback values for empty strings.
   String whenEmptyUse(final String value) => isEmpty ? value : this;
 }
+
+/// Nullable-aware empty checks for [String?]: the common
+/// `value == null || value.isEmpty` guard as a single call.
+///
+/// @ai Prefer over hand-written null-and-empty condition chains.
+extension NullableEmptyOrNotStringX on String? {
+  /// Whether this is null or an empty string.
+  bool get isNullOrEmpty => this == null || this!.isEmpty;
+
+  /// Whether this is a non-null, non-empty string.
+  bool get isNotNullNorEmpty => !isNullOrEmpty;
+
+  /// Returns this string when it is non-null and non-empty, else [value].
+  ///
+  /// ```dart
+  /// const String? name = null;
+  /// name.whenEmptyUse('anon'); // 'anon'
+  /// ''.whenEmptyUse('anon'); // 'anon'
+  /// 'ada'.whenEmptyUse('anon'); // 'ada'
+  /// ```
+  ///
+  /// @ai Same call shape as the non-nullable [EmptyOrNotStringX.whenEmptyUse].
+  String whenEmptyUse(final String value) => isNullOrEmpty ? value : this!;
+}

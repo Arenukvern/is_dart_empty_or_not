@@ -1,3 +1,10 @@
+# 0.5.0
+
+- ADDED: nullable-aware extensions for `String?`, `List?`, `Map?` and `Set?`:
+  `isNullOrEmpty` / `isNotNullNorEmpty` plus a nullable `whenEmptyUse` with the
+  same call shape as the non-nullable one — collapses the common
+  `value == null || value.isEmpty` guard into a single call.
+
 # 0.4.0
 
 - BREAKING: dependencies update:

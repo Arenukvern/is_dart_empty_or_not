@@ -15,4 +15,32 @@ void main() {
       expect(map.whenEmptyUse(fallback), equals(fallback));
     });
   });
+
+  group('NullableEmptyOrNotMapX', () {
+    test('isNullOrEmpty is true for null and empty maps', () {
+      const Map<String, int>? nullMap = null;
+      expect(nullMap.isNullOrEmpty, isTrue);
+      expect(<String, int>{}.isNullOrEmpty, isTrue);
+    });
+
+    test('isNotNullNorEmpty mirrors isNullOrEmpty', () {
+      const Map<String, int>? nullMap = null;
+      expect(nullMap.isNotNullNorEmpty, isFalse);
+      expect(<String, int>{'a': 1}.isNotNullNorEmpty, isTrue);
+    });
+
+    test('whenEmptyUse falls back for null and empty maps', () {
+      const Map<String, int>? nullMap = null;
+      expect(nullMap.whenEmptyUse(<String, int>{'x': 0}), <String, int>{
+        'x': 0,
+      });
+      expect(<String, int>{}.whenEmptyUse(<String, int>{'x': 0}), <String, int>{
+        'x': 0,
+      });
+      expect(
+        <String, int>{'a': 1}.whenEmptyUse(<String, int>{'x': 0}),
+        <String, int>{'a': 1},
+      );
+    });
+  });
 }
