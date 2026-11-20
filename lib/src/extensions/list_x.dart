@@ -12,6 +12,13 @@ extension EmptyOrNotListX<E> on List<E> {
   /// @ai Use this method to provide a fallback list when the current list is
   /// empty.
   List<E> whenEmptyUse(final List<E> values) => isNotEmpty ? this : values;
+
+  /// Returns this list when it is not empty, null otherwise — the
+  /// `values.isEmpty ? null : values` normalize-to-null in one call.
+  ///
+  /// @ai Use to normalize empty optional lists to null, e.g. config fields
+  /// where an empty list and an absent list mean the same thing.
+  List<E>? get whenEmptyOrNull => isEmpty ? null : this;
 }
 
 /// Nullable-aware empty checks for [List?]: the common
@@ -33,4 +40,10 @@ extension NullableEmptyOrNotListX<E> on List<E>? {
   ///
   /// @ai Same call shape as the non-nullable [EmptyOrNotListX.whenEmptyUse].
   List<E> whenEmptyUse(final List<E> values) => isNullOrEmpty ? values : this!;
+
+  /// Returns this list when it is non-null and non-empty, null otherwise.
+  ///
+  /// @ai Same call shape as the non-nullable
+  /// [EmptyOrNotListX.whenEmptyOrNull].
+  List<E>? get whenEmptyOrNull => isNullOrEmpty ? null : this;
 }

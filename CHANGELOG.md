@@ -1,3 +1,15 @@
+# 0.6.0
+
+- ADDED: `whenEmptyOrNull` on `String`, `List`, `Set`, `Map` and their
+  nullable twins — the `value.isEmpty ? null : value` normalize-to-null in
+  one call (the fallback `whenEmptyUse` cannot express: its parameter is
+  non-nullable).
+- ADDED: `whenZeroOrNull` on `int`, `double` and `num` — the
+  `value == 0 ? null : value` normalize-to-null.
+- ADDED: `isNullOrBlank` / `isNotNullNorBlank` on `String?` — like
+  `isNullOrEmpty` / `isNotNullNorEmpty` but trim-aware (blank input counts
+  as absent).
+
 # 0.5.1
 
 - DOCS: document the type-promotion caveat on the nullable extensions

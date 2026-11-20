@@ -42,5 +42,12 @@ void main() {
         <String, int>{'a': 1},
       );
     });
+
+    test('whenEmptyOrNull normalizes empty to null', () {
+      const Map<String, int>? nullMap = null;
+      expect(nullMap.whenEmptyOrNull, isNull);
+      expect(<String, int>{}.whenEmptyOrNull, isNull);
+      expect(<String, int>{'a': 1}.whenEmptyOrNull, <String, int>{'a': 1});
+    });
   });
 }

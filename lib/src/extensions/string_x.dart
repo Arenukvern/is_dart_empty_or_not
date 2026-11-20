@@ -24,6 +24,18 @@ extension EmptyOrNotStringX on String {
   ///
   /// @ai Use this method to provide fallback values for empty strings.
   String whenEmptyUse(final String value) => isEmpty ? value : this;
+
+  /// Returns this string when it is non-empty, null otherwise — the
+  /// `value.isEmpty ? null : value` normalize-to-null in one call.
+  ///
+  /// ```dart
+  /// ''.whenEmptyOrNull; // null
+  /// 'ada'.whenEmptyOrNull; // 'ada'
+  /// ```
+  ///
+  /// @ai Use to normalize empty optional strings to null, e.g. config
+  /// fields where '' and absent mean the same thing.
+  String? get whenEmptyOrNull => isEmpty ? null : this;
 }
 
 /// Nullable-aware empty checks for [String?]: the common
@@ -55,4 +67,34 @@ extension NullableEmptyOrNotStringX on String? {
   ///
   /// @ai Same call shape as the non-nullable [EmptyOrNotStringX.whenEmptyUse].
   String whenEmptyUse(final String value) => isNullOrEmpty ? value : this!;
+
+  /// Whether this is null, empty, or whitespace-only.
+  ///
+  /// ```dart
+  /// const String? name = null;
+  /// name.isNullOrBlank; // true
+  /// '   '.isNullOrBlank; // true
+  /// ' ada '.isNullOrBlank; // false
+  /// ```
+  ///
+  /// @ai Use where blank input should count as absent (env vars, CLI
+  /// answers); unlike [isNullOrEmpty] this trims first.
+  bool get isNullOrBlank => this == null || this!.trim().isEmpty;
+
+  /// Whether this is a non-null string with non-whitespace content.
+  bool get isNotNullNorBlank => !isNullOrBlank;
+
+  /// Returns this string when it is non-null and non-empty, null otherwise —
+  /// the `value == null || value.isEmpty ? null : value` shape in one call.
+  ///
+  /// ```dart
+  /// const String? name = null;
+  /// name.whenEmptyOrNull; // null
+  /// ''.whenEmptyOrNull; // null
+  /// 'ada'.whenEmptyOrNull; // 'ada'
+  /// ```
+  ///
+  /// @ai Same call shape as the non-nullable
+  /// [EmptyOrNotStringX.whenEmptyOrNull].
+  String? get whenEmptyOrNull => isNullOrEmpty ? null : this;
 }

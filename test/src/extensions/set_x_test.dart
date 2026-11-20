@@ -35,5 +35,12 @@ void main() {
       expect(<int>{}.whenEmptyUse(<int>{7}), <int>{7});
       expect(<int>{1}.whenEmptyUse(<int>{7}), <int>{1});
     });
+
+    test('whenEmptyOrNull normalizes empty to null', () {
+      const Set<int>? nullSet = null;
+      expect(nullSet.whenEmptyOrNull, isNull);
+      expect(<int>{}.whenEmptyOrNull, isNull);
+      expect(<int>{1}.whenEmptyOrNull, <int>{1});
+    });
   });
 }

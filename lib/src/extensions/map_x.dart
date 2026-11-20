@@ -2,6 +2,11 @@
 extension EmptyOrNotMapX<K, V> on Map<K, V> {
   /// Returns the map if it is not empty, otherwise returns the provided map.
   Map<K, V> whenEmptyUse(final Map<K, V> map) => isNotEmpty ? this : map;
+
+  /// Returns this map when it is not empty, null otherwise.
+  ///
+  /// @ai Use to normalize empty optional maps to null.
+  Map<K, V>? get whenEmptyOrNull => isEmpty ? null : this;
 }
 
 /// Nullable-aware empty checks for [Map?]: the common
@@ -23,4 +28,10 @@ extension NullableEmptyOrNotMapX<K, V> on Map<K, V>? {
   ///
   /// @ai Same call shape as the non-nullable [EmptyOrNotMapX.whenEmptyUse].
   Map<K, V> whenEmptyUse(final Map<K, V> map) => isNullOrEmpty ? map : this!;
+
+  /// Returns this map when it is non-null and non-empty, null otherwise.
+  ///
+  /// @ai Same call shape as the non-nullable
+  /// [EmptyOrNotMapX.whenEmptyOrNull].
+  Map<K, V>? get whenEmptyOrNull => isNullOrEmpty ? null : this;
 }

@@ -47,4 +47,24 @@ void main() {
       expect(0.0.whenZeroUse(10), equals(10.0));
     });
   });
+
+  group('whenZeroOrNull', () {
+    test('int normalizes zero to null', () {
+      expect(0.whenZeroOrNull, isNull);
+      expect(5.whenZeroOrNull, equals(5));
+      expect((-5).whenZeroOrNull, equals(-5));
+    });
+
+    test('double normalizes zero to null', () {
+      expect(0.0.whenZeroOrNull, isNull);
+      expect(5.0.whenZeroOrNull, equals(5.0));
+    });
+
+    test('num normalizes zero to null', () {
+      const num zero = 0;
+      const num five = 5;
+      expect(zero.whenZeroOrNull, isNull);
+      expect(five.whenZeroOrNull, equals(5));
+    });
+  });
 }

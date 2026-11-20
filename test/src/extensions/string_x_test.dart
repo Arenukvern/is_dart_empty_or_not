@@ -72,5 +72,27 @@ void main() {
       expect(''.whenEmptyUse('anon'), 'anon');
       expect('ada'.whenEmptyUse('anon'), 'ada');
     });
+
+    test('whenEmptyOrNull normalizes empty to null', () {
+      const String? nullStr = null;
+      expect(nullStr.whenEmptyOrNull, isNull);
+      expect(''.whenEmptyOrNull, isNull);
+      expect('ada'.whenEmptyOrNull, 'ada');
+    });
+
+    test('isNullOrBlank treats whitespace-only as absent', () {
+      const String? nullStr = null;
+      expect(nullStr.isNullOrBlank, isTrue);
+      expect(''.isNullOrBlank, isTrue);
+      expect('   '.isNullOrBlank, isTrue);
+      expect(' ada '.isNullOrBlank, isFalse);
+    });
+
+    test('isNotNullNorBlank mirrors isNullOrBlank', () {
+      const String? nullStr = null;
+      expect(nullStr.isNotNullNorBlank, isFalse);
+      expect('   '.isNotNullNorBlank, isFalse);
+      expect('ada'.isNotNullNorBlank, isTrue);
+    });
   });
 }

@@ -2,6 +2,11 @@
 extension EmptyOrNotSetX<T> on Set<T> {
   /// Returns the set if it is not empty, otherwise returns the provided set.
   Set<T> whenEmptyUse(final Set<T> values) => isNotEmpty ? this : values;
+
+  /// Returns this set when it is not empty, null otherwise.
+  ///
+  /// @ai Use to normalize empty optional sets to null.
+  Set<T>? get whenEmptyOrNull => isEmpty ? null : this;
 }
 
 /// Nullable-aware empty checks for [Set?]: the common
@@ -23,4 +28,10 @@ extension NullableEmptyOrNotSetX<T> on Set<T>? {
   ///
   /// @ai Same call shape as the non-nullable [EmptyOrNotSetX.whenEmptyUse].
   Set<T> whenEmptyUse(final Set<T> values) => isNullOrEmpty ? values : this!;
+
+  /// Returns this set when it is non-null and non-empty, null otherwise.
+  ///
+  /// @ai Same call shape as the non-nullable
+  /// [EmptyOrNotSetX.whenEmptyOrNull].
+  Set<T>? get whenEmptyOrNull => isNullOrEmpty ? null : this;
 }
