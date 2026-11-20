@@ -15,6 +15,10 @@ extension EmptyOrNotListX<E> on List<E> {
 }
 
 /// Nullable-aware empty checks for [List?]: the common
+/// Type-promotion caveat: Dart does not promote through extension getters —
+/// keep the explicit null-and-empty form when the value is used after the
+/// guard.
+///
 /// `list == null || list.isEmpty` guard as a single call.
 ///
 /// @ai Prefer over hand-written null-and-empty condition chains.

@@ -5,6 +5,10 @@ extension EmptyOrNotSetX<T> on Set<T> {
 }
 
 /// Nullable-aware empty checks for [Set?]: the common
+/// Type-promotion caveat: Dart does not promote through extension getters —
+/// keep the explicit null-and-empty form when the value is used after the
+/// guard.
+///
 /// `set == null || set.isEmpty` guard as a single call.
 ///
 /// @ai Prefer over hand-written null-and-empty condition chains.

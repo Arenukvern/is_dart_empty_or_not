@@ -5,6 +5,10 @@ extension EmptyOrNotMapX<K, V> on Map<K, V> {
 }
 
 /// Nullable-aware empty checks for [Map?]: the common
+/// Type-promotion caveat: Dart does not promote through extension getters —
+/// keep the explicit null-and-empty form when the value is used after the
+/// guard.
+///
 /// `map == null || map.isEmpty` guard as a single call.
 ///
 /// @ai Prefer over hand-written null-and-empty condition chains.

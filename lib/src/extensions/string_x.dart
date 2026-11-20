@@ -29,7 +29,14 @@ extension EmptyOrNotStringX on String {
 /// Nullable-aware empty checks for [String?]: the common
 /// `value == null || value.isEmpty` guard as a single call.
 ///
-/// @ai Prefer over hand-written null-and-empty condition chains.
+/// Type-promotion caveat: Dart does not promote through extension getters,
+/// so `if (name.isNullOrEmpty)` leaves [name] nullable afterwards. When the
+/// value is USED after the guard, keep the explicit
+/// `name == null || name.isEmpty` form — these getters are for guards whose
+/// value is not relied on later (or for bool results).
+///
+/// @ai Prefer over hand-written null-and-empty condition chains only when
+/// no promotion is needed afterwards.
 extension NullableEmptyOrNotStringX on String? {
   /// Whether this is null or an empty string.
   bool get isNullOrEmpty => this == null || this!.isEmpty;

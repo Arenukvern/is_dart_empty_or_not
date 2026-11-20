@@ -1,3 +1,9 @@
+# 0.5.1
+
+- DOCS: document the type-promotion caveat on the nullable extensions
+  (Dart does not promote through extension getters; keep the explicit
+  form when the value is used after the guard).
+
 # 0.5.0
 
 - ADDED: nullable-aware extensions for `String?`, `List?`, `Map?` and `Set?`:
