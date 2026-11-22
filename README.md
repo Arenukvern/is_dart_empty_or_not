@@ -3,6 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Coverage Status](https://coveralls.io/repos/github/Arenukvern/is_dart_empty_or_not/badge.svg?branch=main)](https://coveralls.io/github/Arenukvern/is_dart_empty_or_not?branch=main)
 [![Pub Version](https://img.shields.io/badge/version-0.2.3-blue)](https://pub.dev/packages/is_dart_empty_or_not)
+[![release train](https://img.shields.io/github/actions/workflow/status/Arenukvern/is_dart_empty_or_not/dart_changesets.yml?branch=main&label=release%20train&logo=github)](https://github.com/Arenukvern/is_dart_empty_or_not/actions/workflows/dart_changesets.yml)
+[![release engine: dart_changesets](https://img.shields.io/badge/release_engine-dart__changesets-0175C2?logo=dart&logoColor=white)](https://github.com/Arenukvern/dart_changesets)
 
 A minimal Dart package providing concise extension methods for handling empty and zero values on core types (`String`, `List`, `Set`, `Map`, `num`, `int`, `double`, `Duration`).
 
